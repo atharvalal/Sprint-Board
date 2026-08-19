@@ -1,14 +1,17 @@
 "use strict";
 
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const prefersCoarsePointer = window.matchMedia("(hover: none), (pointer: coarse)").matches;
 const header = document.getElementById("siteHeader");
 const burger = document.getElementById("burgerBtn");
 const mobileNav = document.getElementById("mobileNav");
 const closeButton = document.getElementById("closeMobileNav");
 const backToTop = document.getElementById("backTop");
 const traceFill = document.getElementById("traceFill");
+const cursorGlow = document.getElementById("cursorGlow");
+const yearEl = document.getElementById("year");
 
-document.getElementById("year").textContent = new Date().getFullYear();
+if (yearEl) yearEl.textContent = new Date().getFullYear();
 
 function setMenu(open) {
   mobileNav.classList.toggle("open", open);
@@ -24,21 +27,46 @@ function setMenu(open) {
   }
 }
 
-burger.addEventListener("click", () => setMenu(true));
-closeButton.addEventListener("click", () => setMenu(false));
-mobileNav.querySelectorAll("a").forEach((link) => {
-  link.addEventListener("click", () => setMenu(false));
-});
+if (burger && closeButton && mobileNav) {
+  burger.addEventListener("click", () => setMenu(true));
+  closeButton.addEventListener("click", () => setMenu(false));
+  mobileNav.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => setMenu(false));
+  });
 
-document.addEventListener("keydown", (event) => {
-  if (event.key === "Escape" && mobileNav.classList.contains("open")) {
-    setMenu(false);
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && mobileNav.classList.contains("open")) {
+      setMenu(false);
+    }
+  });
+}
+
+if (backToTop) {
+  backToTop.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: prefersReducedMotion ? "auto" : "smooth" });
+  });
+}
+
+/* Ambient cursor glow — follows the pointer on devices that actually have one. */
+if (cursorGlow && !prefersReducedMotion && !prefersCoarsePointer) {
+  let glowFramePending = false;
+  let lastX = window.innerWidth / 2;
+  let lastY = window.innerHeight / 2;
+
+  function applyGlowPosition() {
+    document.documentElement.style.setProperty("--mouse-x", `${lastX}px`);
+    document.documentElement.style.setProperty("--mouse-y", `${lastY}px`);
+    glowFramePending = false;
   }
-});
 
-backToTop.addEventListener("click", () => {
-  window.scrollTo({ top: 0, behavior: prefersReducedMotion ? "auto" : "smooth" });
-});
+  window.addEventListener("pointermove", (event) => {
+    lastX = event.clientX;
+    lastY = event.clientY;
+    if (glowFramePending) return;
+    glowFramePending = true;
+    window.requestAnimationFrame(applyGlowPosition);
+  }, { passive: true });
+}
 
 /* Stagger elements that share a reveal group. */
 document.querySelectorAll(".skills-grid, .project-grid").forEach((group) => {
@@ -86,16 +114,27 @@ function updateScrollEffects() {
   const scrollRange = Math.max(document.documentElement.scrollHeight - window.innerHeight, 1);
   const progress = Math.min(Math.max(scrollTop / scrollRange, 0), 1);
 
-  header.classList.toggle("scrolled", scrollTop > 24);
-  traceFill.style.strokeDashoffset = String(1000 - (1000 * progress));
+  if (header) header.classList.toggle("scrolled", scrollTop > 24);
+  if (traceFill) traceFill.style.strokeDashoffset = String(1000 - (1000 * progress));
   scrollFramePending = false;
 }
 
-window.addEventListener("scroll", () => {
+function requestScrollUpdate() {
   if (scrollFramePending) return;
   scrollFramePending = true;
   window.requestAnimationFrame(updateScrollEffects);
+}
+
+window.addEventListener("scroll", requestScrollUpdate, { passive: true });
+
+/* Debounced resize: font loads, orientation changes and window resizes
+   all change scrollHeight, so the progress calculation needs to re-run. */
+let resizeTimeout;
+window.addEventListener("resize", () => {
+  clearTimeout(resizeTimeout);
+  resizeTimeout = setTimeout(requestScrollUpdate, 150);
 }, { passive: true });
+
 updateScrollEffects();
 
 /* Remove delayed reveals when returning via browser history. */
