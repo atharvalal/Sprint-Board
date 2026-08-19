@@ -6,15 +6,50 @@
   <meta name="theme-color" content="#f7f4ee">
   <meta name="description" content="Atharva Lal Shrestha — full-stack developer and AI student exploring machine learning, AI agents and embedded IoT systems.">
   <title>Atharva Lal Shrestha — Developer &amp; AI Student</title>
+
+  <!-- TODO: replace with your real domain once deployed -->
+  <link rel="canonical" href="https://atharvalal.dev/">
+  <meta name="robots" content="index, follow">
+
+  <!-- Favicon (inline SVG, no separate asset needed) -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%2315171b'/%3E%3Ccircle cx='16' cy='16' r='6' fill='%232850d9'/%3E%3C/svg%3E">
+
+  <!-- Open Graph / Twitter card so links shared on LinkedIn, X, Discord etc. render a preview -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Atharva Lal Shrestha — Developer &amp; AI Student">
+  <meta property="og:description" content="Full-stack developer and AI student exploring machine learning, AI agents and embedded IoT systems.">
+  <meta property="og:url" content="https://atharvalal.dev/">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Atharva Lal Shrestha — Developer &amp; AI Student">
+  <meta name="twitter:description" content="Full-stack developer and AI student exploring machine learning, AI agents and embedded IoT systems.">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <script src="script.js" defer></script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Atharva Lal Shrestha",
+    "alternateName": "athu",
+    "url": "https://atharvalal.dev/",
+    "sameAs": ["https://github.com/atharvalal"],
+    "jobTitle": "Full-stack Developer & AI Student",
+    "affiliation": {
+      "@type": "CollegeOrUniversity",
+      "name": "Islington College (London Metropolitan University)"
+    },
+    "knowsAbout": ["Next.js", "React", "Node.js", "MySQL", "Python", "Machine Learning", "AI Agents", "ESP32", "IoT"]
+  }
+  </script>
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to content</a>
   <div class="noise" aria-hidden="true"></div>
+  <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
 
   <div class="trace-rail" aria-hidden="true">
     <svg width="40" viewBox="0 0 40 1000" preserveAspectRatio="none">
@@ -36,7 +71,7 @@
       <a href="#projects" data-nav="projects">PROJECTS</a>
       <a href="#contact" data-nav="contact">CONTACT</a>
     </nav>
-    <a href="#contact" class="nav-cta">LET'S TALK <span aria-hidden="true">↗</span></a>
+    <a href="#contact" class="nav-cta">LET'S TALK <span aria-hidden="true">↗️</span></a>
     <button class="burger" id="burgerBtn" type="button" aria-label="Open menu" aria-controls="mobileNav" aria-expanded="false"><span></span><span></span><span></span></button>
   </header>
 
@@ -80,7 +115,7 @@
         </div>
         <div class="hero-actions">
           <a href="#projects" class="btn btn-solid">VIEW PROJECTS <span aria-hidden="true">→</span></a>
-          <a href="https://github.com/atharvalal" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">GITHUB <span aria-hidden="true">↗</span></a>
+          <a href="https://github.com/atharvalal" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">GITHUB <span aria-hidden="true">↗️</span></a>
         </div>
       </div>
       <div class="hero-scroll-hint"><span class="scroll-line"></span><span>SCROLL TO EXPLORE</span></div>
@@ -106,7 +141,7 @@
           <div class="spec-row"><span class="k">BASED_IN</span><span class="v">Kathmandu, Nepal</span></div>
           <div class="spec-row"><span class="k">FOCUS</span><span class="v">Full-stack web + AI + embedded IoT</span></div>
           <div class="spec-row"><span class="k">LEARNING</span><span class="v">Machine learning + AI agents</span></div>
-          <div class="spec-row"><span class="k">GITHUB</span><a class="v inline-link" href="https://github.com/atharvalal" target="_blank" rel="noopener noreferrer">@atharvalal ↗</a></div>
+          <div class="spec-row"><span class="k">GITHUB</span><a class="v inline-link" href="https://github.com/atharvalal" target="_blank" rel="noopener noreferrer">@atharvalal ↗️</a></div>
           <div class="board-corners" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
         </aside>
       </div>
@@ -133,12 +168,16 @@
         <p class="section-lede">A mix of paid work, class projects, and ideas that escaped the notebook.</p>
       </div>
       <div class="project-grid">
-        <article class="project-card reveal"><div class="card-top"><span class="card-index">02 / COMMERCE</span></div><h3>Kapada Nepal</h3><p>A clothing ecommerce store built end to end — catalogue, cart and checkout included.</p><div class="card-tags"><span>Next.js</span><span>Ecommerce</span><span>Vercel</span></div><a class="card-link" href="#" aria-label="View Kapada Nepal project">VIEW PROJECT <span>↗</span></a></article>
-        <article class="project-card reveal"><div class="card-top"><span class="card-index">03 / PLATFORM</span></div><h3>Lexway Law Associates</h3><p>A law-firm platform with a Next.js frontend, Express backend and a content admin panel.</p><div class="card-tags"><span>Next.js</span><span>Express</span><span>Admin Panel</span></div><a class="card-link" href="#" aria-label="View Lexway Law Associates project">VIEW PROJECT <span>↗</span></a></article>
-        <article class="project-card reveal"><span class="project-stamp green">served</span><div class="card-top"><span class="card-index">04 / HOSPITALITY</span></div><h3>The Bengal Restaurant</h3><p>A restaurant website with a digital menu built for browsing dishes and drinks by category.</p><div class="card-tags"><span>Next.js</span><span>Menu System</span></div><a class="card-link" href="#" aria-label="View The Bengal Restaurant project">VIEW PROJECT <span>↗</span></a></article>
-        <article class="project-card project-featured project-dark reveal"><div class="card-top"><span class="card-index">05 / IOT</span></div><h3>Smart Greenhouse</h3><p>An ESP32 system that monitors and controls greenhouse conditions in real time — sensors in, automation out.</p><p class="project-aside">Wires, soil, sensor readings, and a lot of debugging.</p><div class="card-tags"><span>ESP32</span><span>IoT</span><span>Sensors</span></div><span class="course-tag">CC4003NI · COURSEWORK</span><a class="card-link" href="#" aria-label="View Smart Greenhouse project">VIEW PROJECT <span>↗</span></a></article>
-        <article class="project-card reveal"><div class="card-top"><span class="card-index">06 / PYTHON</span></div><h3>MedStore Wholesale</h3><p>A pharmacy inventory system covering stock, orders and records for a data structures module.</p><div class="card-tags"><span>Python</span><span>Console App</span></div><span class="course-tag">CS4051NI · COURSEWORK</span><a class="card-link" href="#" aria-label="View MedStore Wholesale project">VIEW PROJECT <span>↗</span></a></article>
-        <article class="project-card reveal"><div class="card-top"><span class="card-index">07 / JAVA</span></div><h3>AI Subscription Manager</h3><p>A desktop app for tracking subscriptions, built with Java Swing while learning OOP properly.</p><div class="card-tags"><span>Java</span><span>Swing</span><span>OOP</span></div><span class="course-tag">CS4001NI · COURSEWORK</span><a class="card-link" href="#" aria-label="View AI Subscription Manager project">VIEW PROJECT <span>↗</span></a></article>
+        <article class="project-card reveal"><div class="card-top"><span class="card-index">02 / COMMERCE</span></div><h3>Kapada Nepal</h3><p>A clothing ecommerce store built end to end — catalogue, cart and checkout included.</p><div class="card-tags"><span>Next.js</span><span>Ecommerce</span><span>Vercel</span></div><a class="card-link" href="https://kapadanp.com" target="_blank" rel="noopener noreferrer" aria-label="View Kapada Nepal project">VIEW PROJECT <span>↗️</span></a></article>
+        <article class="project-card reveal"><div class="card-top"><span class="card-index">03 / PLATFORM</span></div><h3>Lexway Law Associates</h3><p>A law-firm platform with a Next.js frontend, Express backend and a content admin panel.</p><div class="card-tags"><span>Next.js</span><span>Express</span><span>Admin Panel</span></div><a class="card-link" href="https://lexway.com.np" target="_blank" rel="noopener noreferrer" aria-label="View Lexway Law Associates project">VIEW PROJECT <span>↗️</span></a></article>
+        <article class="project-card reveal"><span class="project-stamp green">served</span><div class="card-top"><span class="card-index">04 / HOSPITALITY</span></div><h3>The Bengal Restaurant</h3><p>A restaurant website with a digital menu built for browsing dishes and drinks by category.</p><div class="card-tags"><span>Next.js</span><span>Menu System</span></div><!-- TODO: swap href for the live demo or repo once available -->
+        <a class="card-link" href="https://github.com/atharvalal" target="_blank" rel="noopener noreferrer" aria-label="View The Bengal Restaurant project">VIEW PROJECT <span>↗️</span></a></article>
+        <article class="project-card project-featured project-dark reveal"><div class="card-top"><span class="card-index">05 / IOT</span></div><h3>Smart Greenhouse</h3><p>An ESP32 system that monitors and controls greenhouse conditions in real time — sensors in, automation out.</p><p class="project-aside">Wires, soil, sensor readings, and a lot of debugging.</p><div class="card-tags"><span>ESP32</span><span>IoT</span><span>Sensors</span></div><span class="course-tag">CC4003NI · COURSEWORK</span><!-- TODO: swap href for the live demo or repo once available -->
+        <a class="card-link" href="https://github.com/atharvalal" target="_blank" rel="noopener noreferrer" aria-label="View Smart Greenhouse project">VIEW PROJECT <span>↗️</span></a></article>
+        <article class="project-card reveal"><div class="card-top"><span class="card-index">06 / PYTHON</span></div><h3>MedStore Wholesale</h3><p>A pharmacy inventory system covering stock, orders and records for a data structures module.</p><div class="card-tags"><span>Python</span><span>Console App</span></div><span class="course-tag">CS4051NI · COURSEWORK</span><!-- TODO: swap href for the live demo or repo once available -->
+        <a class="card-link" href="https://github.com/atharvalal" target="_blank" rel="noopener noreferrer" aria-label="View MedStore Wholesale project">VIEW PROJECT <span>↗️</span></a></article>
+        <article class="project-card reveal"><div class="card-top"><span class="card-index">07 / JAVA</span></div><h3>AI Subscription Manager</h3><p>A desktop app for tracking subscriptions, built with Java Swing while learning OOP properly.</p><div class="card-tags"><span>Java</span><span>Swing</span><span>OOP</span></div><span class="course-tag">CS4001NI · COURSEWORK</span><!-- TODO: swap href for the live demo or repo once available -->
+        <a class="card-link" href="https://github.com/atharvalal" target="_blank" rel="noopener noreferrer" aria-label="View AI Subscription Manager project">VIEW PROJECT <span>↗️</span></a></article>
       </div>
     </section>
 
@@ -147,11 +186,11 @@
       <p class="eyebrow reveal">// MY INBOX IS OPEN</p>
       <h2 class="reveal">Need a website?<br><em>Or have a strange idea?</em></h2>
       <p class="section-lede reveal">Both are good reasons to say hello. I'm open to freelance work, internships, and interesting collaborations.</p>
-      <div class="contact-actions reveal"><a href="mailto:youremail@example.com" class="btn btn-solid">EMAIL ME <span aria-hidden="true">→</span></a><a href="https://github.com/atharvalal" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">GITHUB <span aria-hidden="true">↗</span></a></div>
-      <div class="contact-links reveal"><a href="mailto:youremail@example.com">EMAIL ↗</a><a href="https://github.com/atharvalal" target="_blank" rel="noopener noreferrer">GITHUB ↗</a><a href="#">LINKEDIN ↗</a></div>
+      <div class="contact-actions reveal"><a href="mailto:youremail@example.com" class="btn btn-solid">EMAIL ME <span aria-hidden="true">→</span></a><a href="https://github.com/atharvalal" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">GITHUB <span aria-hidden="true">↗️</span></a></div>
+      <div class="contact-links reveal"><a href="mailto:youremail@example.com">EMAIL ↗️</a><a href="https://github.com/atharvalal" target="_blank" rel="noopener noreferrer">GITHUB ↗️</a><!-- TODO: add your real LinkedIn URL --><a href="https://www.linkedin.com/in/atharvalal" target="_blank" rel="noopener noreferrer">LINKEDIN ↗️</a></div>
     </section>
   </main>
 
-  <footer><span>© <span id="year"></span> ATHARVA LAL</span><span class="footer-build"><i></i> BUILT WITH HTML / CSS / JS</span><button class="back-top" id="backTop" type="button">BACK TO TOP ↑</button></footer>
+  <footer><span>©️ <span id="year"></span> ATHARVA LAL</span><span class="footer-build"><i></i> BUILT WITH HTML / CSS / JS</span><button class="back-top" id="backTop" type="button">BACK TO TOP ↑</button></footer>
 </body>
 </html>
